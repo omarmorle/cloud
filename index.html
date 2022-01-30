@@ -1,0 +1,191 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+
+	<title>Iniciar sesión</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" type="image/x-icon" href="./cloud.ico">
+
+	</head>
+	
+	<body>
+
+		<section class="ftco-section" id="iniciosesion">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5 mt-5">
+						<h2 class="heading-section">Cloud <i class="fa fa-cloud" aria-hidden="true"></i></h2>
+					</div>
+				</div>
+	  
+				<div class="row justify-content-center">
+					<div class="col-md-12 col-lg-10">
+						<div class="wrap d-md-flex">
+							<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+								<div class="text w-100">
+									<h2>Bienvenido</h2>
+									<p>¿No tienes cuenta?</p>
+									<a onclick="change()" class="btn btn-white btn-outline-white">Crear</a>
+								</div>
+					  </div>
+							<div class="login-wrap p-4 p-lg-5">
+						  <div class="d-flex">
+							  <div class="w-100">
+								  <h3 class="mb-4">Iniciar sesión</h3>
+							  </div>
+						  </div>
+							<form method="post" action="./php/valida.php" class="signin-form">
+							  <div class="form-group mb-3">
+								  <label class="label" for="name">Usuario</label>
+								  <input name="user1" type="text" class="form-control" placeholder="Usuario" required>
+							  </div>
+						<div class="form-group mb-3">
+							<label class="label" for="password">Contraseña</label>
+							<div class="input-group">
+								<input id="txtPassword" name="pass1" type="password" class="form-control" placeholder="Contraseña" required>
+								<button id="show_password" class="btn btn-primary " type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+							</div>
+						</div>
+						<div class="form-group">
+							<button name="ingresa" type="submit" class="form-control btn btn-primary submit px-3">Iniciar sesión</button>
+						</div>
+						<div class="form-group d-md-flex">
+							<div class="w-50 text-left"></div>
+						</div>
+					  </form>
+					</div>
+				  </div>
+				</div>
+			</div>
+			</div>
+		</section>
+
+		<section class="ftco-section" id="registro">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5 mt-5">
+						<h2 class="heading-section">Cloud <i class="fa fa-cloud" aria-hidden="true"></i></h2>
+					</div>
+				</div>
+	  
+				<div class="row justify-content-center">
+					<div class="col-md-12 col-lg-10">
+						<div class="wrap d-md-flex">
+							<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+								<div class="text w-100">
+									<h2>Bienvenido</h2>
+									<p>¿Listo?</p>
+									<a onclick="change()" class="btn btn-white btn-outline-white">Inicia sesión</a>
+								</div>
+					  </div>
+							<div class="login-wrap p-4 p-lg-5">
+						  <div class="d-flex">
+							  <div class="w-100">
+								  <h3 class="mb-4">Crear cuenta</h3>
+							  </div>
+						  </div>
+							<form method="post" action="./php/inserta.php" class="signin-form">
+							  <div class="form-group mb-3">
+								  <label class="label" for="name">Usuario</label>
+								  <input name="user" type="text" class="form-control" placeholder="Usuario" required>
+							  </div>
+						<div class="form-group mb-3">
+							<label class="label" for="password">Contraseña</label>
+							<div class="input-group">
+								<input id="txtPassword1" name="pass" type="password" class="form-control" placeholder="Contraseña" required>
+								<button id="show_password" class="btn btn-primary " type="button" onclick="mostrarPassword1()"> <span class="fa fa-eye-slash icon"></span> </button>
+							</div>
+						</div>
+						<div class="form-group mb-3">
+							<label class="label" for="password">Código</label>
+						  <input name="code" type="text" class="form-control" placeholder="Código invitación" required>
+						</div>
+						<div class="form-group">
+							<button name="register" type="submit" class="form-control btn btn-primary submit px-3">Registrar</button>
+						</div>
+						<div class="form-group d-md-flex">
+							<div class="w-50 text-left"></div>
+						</div>
+					  </form>
+					</div>
+				  </div>
+				</div>
+			</div>
+			</div>
+		</section>
+
+		<script>
+			let selector = 1
+			let elem = document.getElementById('iniciosesion');
+			let elemdos = document.getElementById('registro');
+			changeContent()
+
+			function changeContent () {
+				// Si selector es 1 se muestra el contenido de in.html
+				if (selector == 1){
+					console.log("1")
+					document.title = "Iniciar sesión";
+					elem.style.display = 'initial';
+					elemdos.style.display = 'none';
+				}
+				// Si selector es 2 se muestra el contenido de create.html
+				else{
+					console.log("2")
+					elem.style.display = 'none';
+					document.title = "Registrar";
+					elem.style.display = 'none';
+					elemdos.style.display = 'initial';
+				}
+			}
+
+			function change() {
+				//si selector es 1 cambiar a 2 y si es 2 cambiar a 1
+				if (selector == 1) {
+					selector = 2
+				} else {
+					selector = 1
+				}
+				changeContent()
+			}
+
+			function mostrarPassword(){
+				var cambio = document.getElementById("txtPassword");
+				if(cambio.type == "password"){
+					cambio.type = "text";
+					$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+				}else{
+					cambio.type = "password";
+					$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+				}
+			} 
+
+			function mostrarPassword1(){
+				var cambio = document.getElementById("txtPassword1");
+				if(cambio.type == "password"){
+					cambio.type = "text";
+					$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+				}else{
+					cambio.type = "password";
+					$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+				}
+			} 
+
+		</script>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/popper.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/main.js"></script>
+
+	</body>
+
+  
+</html>
+
